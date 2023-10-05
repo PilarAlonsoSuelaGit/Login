@@ -1,12 +1,7 @@
-// validate.tsx
-
-interface User {
-  user: string;
-  email: string;
-  password: string;
-}
+import { User } from "../typings/user";
 
 export const isEmail = () => {};
+
 export const isEmpty = (value: User) => {
   let error = "";
   if (value.user === "") {

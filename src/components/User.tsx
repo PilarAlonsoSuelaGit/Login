@@ -1,12 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 import { useForm, SubmitHandler } from "react-hook-form";
-type User = {
-  user: string;
-  email: string;
-  password: string;
-};
+
+import { User } from "../typings/user";
+
 // Componente Login
 export const Login = () => {
   const {
