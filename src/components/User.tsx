@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { FC, FunctionComponent } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
+import { User } from "../typings/user";
 
-import { useForm, SubmitHandler } from "react-hook-form"
-type User = {
-  user: string
-  email: string
-  password: string
-}
-// Componente Login
-export const Login = () => {
+type LoginProps = {
+  onSubmit: (data: User) => void;
+};
 
+// export const Login: FC<LoginProps> = (props) => {
+export const Login: FunctionComponent<LoginProps> = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     //formstate es como otra clase más
     formState: { errors },
-  } = useForm<User>()
-  const onSubmit: SubmitHandler<User> = (data) => console.log(data)
+  } = useForm<User>();
+  const onSubmit: SubmitHandler<User> = (data) => props.onSubmit(data);
+
   return (
     <div className="mb-2">
       <h1 className="font-weight-bold">Welcome</h1>
@@ -66,10 +64,7 @@ export const Login = () => {
         <button type="submit" className="btn btn-outline-secondary btn-lg">
           Iniciar sesión
         </button>
-        
-
       </form>
-      <Link to="Home">Haz clic aquí</Link>
     </div>
   );
 };
