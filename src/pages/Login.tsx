@@ -5,7 +5,7 @@ function LoginPage() {
   return (
     <div>
       <Login />
-      <Link to="/home">Ir a "/home"</Link>
+      <Link to="/">Ir a "/"</Link>
     </div>
   );
 }
