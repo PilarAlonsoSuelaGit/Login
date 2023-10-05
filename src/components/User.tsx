@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 type User = {
-  user: string
-  email: string
-  password: string
-}
+  user: string;
+  email: string;
+  password: string;
+};
 // Componente Login
 export const Login = () => {
-
   const {
     register,
     handleSubmit,
     watch,
     //formstate es como otra clase más
     formState: { errors },
-  } = useForm<User>()
-  const onSubmit: SubmitHandler<User> = (data) => console.log(data)
+  } = useForm<User>();
+  const onSubmit: SubmitHandler<User> = (data) => console.log(data);
   return (
     <div className="mb-2">
       <h1 className="font-weight-bold">Welcome</h1>
@@ -66,10 +64,7 @@ export const Login = () => {
         <button type="submit" className="btn btn-outline-secondary btn-lg">
           Iniciar sesión
         </button>
-        
-
       </form>
-      <Link to="Home">Haz clic aquí</Link>
     </div>
   );
 };

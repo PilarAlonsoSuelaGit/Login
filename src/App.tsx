@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home";
-import { Login } from "./components/User";
+import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,10 +8,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Routes>
-          <Route path="Home" element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="login" element={<Login />} />
         </Routes>
-
-        <Login />
       </header>
     </div>
   );
