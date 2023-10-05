@@ -1,17 +1,22 @@
+import { FC, FunctionComponent } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { User } from "../typings/user";
 
-// Componente Login
-export const Login = () => {
+type LoginProps = {
+  onSubmit: (data: User) => void;
+};
+
+// export const Login: FC<LoginProps> = (props) => {
+export const Login: FunctionComponent<LoginProps> = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     //formstate es como otra clase más
     formState: { errors },
   } = useForm<User>();
-  const onSubmit: SubmitHandler<User> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<User> = (data) => props.onSubmit(data);
+
   return (
     <div className="mb-2">
       <h1 className="font-weight-bold">Welcome</h1>
