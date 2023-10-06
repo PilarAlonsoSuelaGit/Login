@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
+import { spanStyle } from "../utils/span-const";
 
 
 
@@ -25,11 +26,14 @@ function TaskText(properties: TaskTextProperties) {
       <span style={spanStyle} onClick={handleDelete}>
         x
       </span>
+      <span style={spanStyle} onClick={handleDelete}>
+        x
+      </span>
     </p>
   );
 }
 
-function ToDoList() {
+export function ToDoList() {
   const [taskText, setTaskText] = useState(""); // Estado para almacenar el texto de la tarea
   const [tasks, setTasks] = useState<string[]>([]); // Estado para almacenar la lista de tareas
 

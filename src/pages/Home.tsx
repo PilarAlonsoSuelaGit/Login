@@ -12,6 +12,8 @@ function HomePage() {
     <div>
       <h1>Has hecho click</h1>
       <Link to="/login">Ir a "/login"</Link>
+      <Link to="/to-do-list">Ir a "todolist"</Link>
+     
 
       <div style={{ zoom: "0.5" }}>
         <Login onSubmit={handleSubmit} />

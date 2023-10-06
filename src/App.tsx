@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 
 import "./app.css";
+import ToDoList from "./to-do-List/pages/to-do-list";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="to-do-list" element={<ToDoList />} />
         </Routes>
       </header>
     </div>
