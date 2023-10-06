@@ -1,14 +1,8 @@
 import { useState } from "react";
+import { TaskTextProperties } from "../typings/task-text-properties";
 
-interface TaskTextProperties {
-  text: string;
-  fontSize: string;
-  color?: "grey";
-  imagen?: string;
-  align?: "center";
-  onDelete?: (index: number) => void;
-  index?: number;
-}
+
+
 
 function TaskText(properties: TaskTextProperties) {
   const fontSize = properties.fontSize;
@@ -17,13 +11,6 @@ function TaskText(properties: TaskTextProperties) {
     color: properties.color || "grey",
     textAlign: properties.align || "center",
     marginTop: "25px"
-  };
-
-  const spanStyle = {
-    marginLeft: "30px",
-    padding: "5px",
-    borderRadius: "50%",
-    transition: "background-color 0.3s ease"
   };
 
   const handleDelete = () => {
