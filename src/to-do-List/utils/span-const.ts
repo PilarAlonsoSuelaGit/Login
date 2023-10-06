@@ -1,4 +1,4 @@
-const spanStyle = {
+export const spanStyle = {
     marginLeft: "30px",
     padding: "5px",
     borderRadius: "50%",
