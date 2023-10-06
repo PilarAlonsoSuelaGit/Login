@@ -2,21 +2,23 @@ import { useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
 import { spanStyle } from "../utils/span-const";
 
-
-
-
 function TaskText(properties: TaskTextProperties) {
   const fontSize = properties.fontSize;
   const textOptions = {
     fontSize,
     color: properties.color || "grey",
     textAlign: properties.align || "center",
-    marginTop: "25px"
+    marginTop: "25px",
   };
 
   const handleDelete = () => {
     if (properties.onDelete && properties.index !== undefined) {
       properties.onDelete(properties.index);
+    }
+  };
+  const handleCopy = () => {
+    if (properties.onCopy && properties.index !== undefined) {
+      properties.onCopy(properties.index);
     }
   };
 
@@ -26,7 +28,7 @@ function TaskText(properties: TaskTextProperties) {
       <span style={spanStyle} onClick={handleDelete}>
         x
       </span>
-      <span style={spanStyle} onClick={handleDelete}>
+      <span style={spanStyle} onClick={handleCopy}>
         x
       </span>
     </p>
@@ -50,6 +52,15 @@ export function ToDoList() {
     const updatedTasks = tasks.filter((_, index) => index !== indexToDelete);
     setTasks(updatedTasks);
   };
+  //queremos añadir una tarea a la lista
+  const copyItem = (indexToCopy: number) => {
+    
+    const taskToCopy = tasks[indexToCopy];
+
+
+  // Agregar la tarea copiada a la lista
+  setTasks([...tasks, taskToCopy]);
+  };
 
   return (
     <div className="containerToDo">
@@ -71,6 +82,7 @@ export function ToDoList() {
             text={task}
             fontSize="10px"
             onDelete={(index) => deleteItem(index)}
+            onCopy={(index) => copyItem(index)}
             index={index}
           />
         ))}

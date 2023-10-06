@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 
 import "./app.css";
-import ToDoList from "./to-do-List/pages/to-do-list";
+import ToDoList from "./to-do-List/components/to-do-list";
 
 
 function App() {
