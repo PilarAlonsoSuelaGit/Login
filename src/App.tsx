@@ -1,12 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
-
 import Home from "./pages/home";
 import Login from "./pages/login";
+import ToDoListApp from "./to-do-List/components/to-do-list-app";
 
 import "./app.css";
-import ToDoList from "./to-do-List/components/to-do-list";
-
 
 function App() {
   return (
@@ -15,7 +13,7 @@ function App() {
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="to-do-list" element={<ToDoList />} />
+          <Route path="to-do-list-app" element={<ToDoListApp />} />
         </Routes>
       </header>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
 import { spanStyle } from "../utils/span-const";
+import { Link } from "react-router-dom";
 
 function TaskText(properties: TaskTextProperties) {
   const fontSize = properties.fontSize;
@@ -91,11 +92,4 @@ export function ToDoList() {
   );
 }
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>TO-DO LIST</h1>
-      <ToDoList />
-    </div>
-  );
-}
+

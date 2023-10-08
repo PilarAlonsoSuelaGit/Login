@@ -12,7 +12,6 @@ function LoginPage() {
     <div>
       <Login onSubmit={handleSubmit} />
       <Link to="/">Ir a "/"</Link>
-      
     </div>
   );
 }
