@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
 import { spanStyle } from "../utils/span-const";
 import { Link } from "react-router-dom";
+import { Span } from "../typings/span-task";
 
 function TaskText(properties: TaskTextProperties) {
   const fontSize = properties.fontSize;
@@ -11,6 +12,15 @@ function TaskText(properties: TaskTextProperties) {
     textAlign: properties.align || "center",
     marginTop: "25px",
   };
+
+  function spanTask(properties: Span) {
+    const spanStyle = {
+      marginLeft: properties.marginLeft || "30px",
+      padding: properties.padding || "5px",
+      borderRadius: properties.borderRadius || "50%",
+      transition: properties.transition || "background-color 0.3s ease",
+    };
+  }
 
   const handleDelete = () => {
     if (properties.onDelete && properties.index !== undefined) {
@@ -55,12 +65,10 @@ export function ToDoList() {
   };
   //queremos añadir una tarea a la lista
   const copyItem = (indexToCopy: number) => {
-    
     const taskToCopy = tasks[indexToCopy];
 
-
-  // Agregar la tarea copiada a la lista
-  setTasks([...tasks, taskToCopy]);
+    // Agregar la tarea copiada a la lista
+    setTasks([...tasks, taskToCopy]);
   };
 
   return (
@@ -91,5 +99,3 @@ export function ToDoList() {
     </div>
   );
 }
-
-
