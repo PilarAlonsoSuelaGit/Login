@@ -1,8 +1,17 @@
 import { CSSProperties, useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
-import { spanStyle } from "../utils/span-const";
 import { Link } from "react-router-dom";
-import { Span } from "../typings/span-task";
+import { SpanProperties } from "../typings/span-task";
+
+function spanTask(properties: SpanProperties) {
+  const spanStyle = {
+    marginLeft: properties.marginLeft || "30px",
+    padding: properties.padding || "5px",
+    borderRadius: properties.borderRadius || "50%",
+    transition: properties.transition || "background-color 0.3s ease",
+  };
+  return spanStyle;
+}
 
 function TaskText(properties: TaskTextProperties) {
   const fontSize = properties.fontSize;
@@ -13,14 +22,8 @@ function TaskText(properties: TaskTextProperties) {
     marginTop: "25px",
   };
 
-  function spanTask(properties: Span) {
-    const spanStyle = {
-      marginLeft: properties.marginLeft || "30px",
-      padding: properties.padding || "5px",
-      borderRadius: properties.borderRadius || "50%",
-      transition: properties.transition || "background-color 0.3s ease",
-    };
-  }
+  //garantizamos que las propiedades son de SpanProperties
+  const spanStyle = spanTask(properties as SpanProperties);
 
   const handleDelete = () => {
     if (properties.onDelete && properties.index !== undefined) {
@@ -36,10 +39,10 @@ function TaskText(properties: TaskTextProperties) {
   return (
     <p className="taskText" style={textOptions}>
       {properties.text}
-      <span style={spanStyle} onClick={handleDelete}>
+      <span className="spanTask" style={spanStyle} onClick={handleDelete}>
         x
       </span>
-      <span style={spanStyle} onClick={handleCopy}>
+      <span className="spanTask" style={spanStyle} onClick={handleCopy}>
         x
       </span>
     </p>

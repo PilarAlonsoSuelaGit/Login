@@ -1,6 +1,6 @@
-export type Span = {
-  marginLeft: string,
-  padding: string,
-  borderRadius: string,
-  transition: string
-};
+export interface SpanProperties {
+  marginLeft?: string;
+  padding?: string;
+  borderRadius?: string;
+  transition?: string;
+}
