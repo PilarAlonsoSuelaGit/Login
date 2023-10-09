@@ -1,8 +1,8 @@
 import { CSSProperties, useState } from "react";
 import { TaskTextProperties } from "../typings/task-text-properties";
 import { Link } from "react-router-dom";
-import { SpanProperties } from "../typings/span-task";
-
+import { SpanProperties } from "../typings/span-task-properties";
+//funcion que recibe spanProperties con la const spanStyle que dará estilo al elemento span
 function spanTask(properties: SpanProperties) {
   const spanStyle = {
     marginLeft: properties.marginLeft || "30px",
@@ -43,7 +43,7 @@ function TaskText(properties: TaskTextProperties) {
         x
       </span>
       <span className="spanTask" style={spanStyle} onClick={handleCopy}>
-        x
+        copy
       </span>
     </p>
   );

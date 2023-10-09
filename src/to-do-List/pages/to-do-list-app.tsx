@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ToDoList } from "./to-do-list";
+import { ToDoList } from "../components/to-do-list";
 
-export default function ToDoListApp() {
+export default function ToDoListPage() {
   return (
     <div className="App">
       <h1>TO-DO LIST</h1>
